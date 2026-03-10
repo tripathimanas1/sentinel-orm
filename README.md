@@ -51,6 +51,10 @@ poetry run alembic upgrade head
 
 # Start the API server
 poetry run uvicorn app.main:app --reload
+
+# Start the Live Ingestion Engine (in a separate terminal)
+# This script continuously fetches data from Reddit, Twitter, Instagram, and Quora
+poetry run python scripts/run_live_ingestion.py
 ```
 
 ### Development
