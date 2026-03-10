@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel | Moat Intelligence Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar / Navigation -->
+        <nav class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>SENTINEL</span>
+            </div>
+
+            <div class="menu">
+                <a href="#" class="active"><i class="fa-solid fa-layer-group"></i> MOAT Insights</a>
+                <a href="#"><i class="fa-solid fa-chess"></i> Simulate</a>
+                <a href="#"><i class="fa-solid fa-satellite-dish"></i> Live Signals</a>
+            </div>
+
+            <div class="user-profile">
+                <div class="avatar">OM</div>
+                <span>Operator Mode</span>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header>
+                <div class="header-left">
+                    <h1>Moat Intelligence</h1>
+                    <p>Real-time defensive analytics & source attribution</p>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="brandInput" placeholder="Enter Brand ID (e.g. tesla)" value="squareyards">
+                    <button onclick="loadDashboard()"><i class="fa-solid fa-magnifying-glass"></i> Analyze</button>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+
+                <!-- Section 1: Source Insights (The "Where") -->
+                <section class="full-width-section">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-network-wired"></i> Source Insights</h2>
+                        <span class="refresh-badge">Live Updates</span>
+                    </div>
+
+                    <div class="cards_container" id="sourceCards">
+                        <!-- Cards will be injected here via JS -->
+                        <div class="loading-state">Loading Insights...</div>
+                    </div>
+                </section>
+
+                <!-- Section 2: LLM Visibility & Metrics -->
+                <section class="chart-section">
+                    <div class="glass-card chart-card">
+                        <h3>LLM Visibility Score</h3>
+                        <canvas id="visibilityChart"></canvas>
+                    </div>
+                    <div class="glass-card chart-card">
+                        <h3>Sentiment By Platform</h3>
+                        <canvas id="sentimentChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Section 3: Simulation War Room (The "What If") -->
+                <section class="full-width-section war-room">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Strategy Simulator</h2>
+                        <p>Predict the outcome of your next move.</p>
+                    </div>
+
+                    <div class="simulation-container">
+                        <div class="sim-controls glass-card">
+                            <h3>Select Actions</h3>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="launch_pr_campaign"> Launch PR Campaign
+                                    (+Sentiment)</label>
+                                <label><input type="checkbox" value="increase_social_posts"> Increase Social Volume
+                                    (+Vol)</label>
+                                <label><input type="checkbox" value="partner_with_influencer"> Influencer Parntership
+                                    (+Eng)</label>
+                                <label><input type="checkbox" value="improve_customer_support"> Support Overhaul
+                                    (+Cred)</label>
+                                <label><input type="checkbox" value="get_verified"> Get Verified (+Cred)</label>
+                            </div>
+                            <button class="sim-btn" onclick="runSimulation()">Run Simulation <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+
+                        <div class="sim-results glass-card" id="simResults">
+                            <div class="placeholder-text">Select actions to see predicted impact on your score.</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js?v=2"></script>
+</body>
+
+</html>

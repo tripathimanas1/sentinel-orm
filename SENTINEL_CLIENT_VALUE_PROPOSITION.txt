@@ -1,0 +1,83 @@
+SENTINEL: CLIENT VALUE PROPOSITION & API STRATEGY
+=====================================================
+
+This document outlines the business impact, technical rationale, and strategic value of the four pillar APIs within the Sentinel AI ecosystem. Each API is designed to transform complex data into actionable business intelligence.
+
+---
+
+1. BRAND HEALTH API
+-------------------
+[Use Case]
+Provides a holistic, real-time "North Star" metric for a brand’s current standing across the digital landscape. It consolidates millions of data points into a single Health Index (0-100).
+
+[Impact]
+Eliminates "metric fatigue" by providing executives and brand managers with a simplified view of performance. It answers the question: "Is our brand safe and stable right now?"
+
+[Outcome]
+A real-time health score weighted by sentiment, signal volume, source diversity (platform resilience), and recency (exponential decay to prioritize today’s news).
+
+[Relevance]
+Crucial for long-term health tracking and identifying slow-burning issues that don't trigger immediate alerts but degrade brand equity over time.
+
+[Model Rationale: BrandHealthEngine]
+Instead of a simple average, the underlying engine uses a multi-factor composite algorithm. It applies "Credibility Weighting" (via the Credibility Model) to ensure that a few loud trolls don't artificially tank the score, while authoritative sources have a higher impact.
+
+---
+
+2. SENTIMENT TRENDS API
+------------------------
+[Use Case]
+Visualizes the brand’s emotional trajectory over days, weeks, or months. It identifies patterns and shifts in how the public perceives the brand.
+
+[Impact]
+Directly measures the ROI of marketing campaigns and PR initiatives. It helps teams understand if their messaging is actually moving the needle in the right direction.
+
+[Outcome]
+Chronological data points showing average sentiment (ranging from -1.0 to 1.0) along with confidence scores and signal volume.
+
+[Relevance]
+Essential for measuring the "delta" in brand perception after major events, product launches, or public statements.
+
+[Model Rationale: Sentiment & Credibility Models]
+The API uses a high-precision XGBoost Regression model to predict text sentiment. This is paired with the Credibility Model to compute a "True Sentiment" trend, which filters out platform-specific biases and bot-driven artificial amplification.
+
+---
+
+3. RISK ALERTS API
+------------------
+[Use Case]
+An early-warning system that detects and prioritizes potential crises as they emerge. It identifies "Signals that Matter" before they reach peak velocity.
+
+[Impact]
+Enables proactive crisis management. By the time a crisis is trending, it's often too late; this API finds the "Patient Zero" and alerts teams when the velocity suggests a coming spike.
+
+[Outcome]
+A prioritized queue of risk events categorized by severity (Critical, High, Medium, Low) and "Amplification Risk."
+
+[Relevance]
+Protects the brand from sudden reputational damage and financial loss by allowing teams to intervene early with targeted rebuttals or clarifications.
+
+[Model Rationale: Emotion & Risk Engines]
+This API leverages the Multi-Label Emotion Model to detect "Anger" and "Frustration" triggers—the two emotions most correlated with viral negative trends. The Risk Engine also calculates "Velocity" and "Business Impact" to ensure teams focus on threats that actually affect the bottom line.
+
+---
+
+4. SOURCE INSIGHTS API
+----------------------
+[Use Case]
+Pinpoints exactly where the conversation is happening and which platforms (Reddit, Quora, Instagram, LinkedIn, etc.) are driving business outcomes or PR risks.
+
+[Impact]
+Optimizes resource allocation. It tells a brand where to focus their community management and where their "Brand Evangelists" or "Detractors" are most active.
+
+[Outcome]
+A platform-by-platform analysis of visibility, conversion rates, and "PR Health" (sentiment/anger levels per channel).
+
+[Relevance]
+Transforms a "broadcast" strategy into a "surgical" strategy, allowing for platform-specific messaging that resonates with specific sub-audiences.
+
+[Model Rationale: SourceInsightsEngine]
+The engine correlates signal data (what people are saying) with hard conversion events (purchases, sign-ups). This allows the system to calculate the "Impact per Mention," showing the client which platforms provide the highest quality of engagement, not just the highest quantity.
+
+=====================================================
+SENTINEL: Precision Intelligence for Modern Brands.
